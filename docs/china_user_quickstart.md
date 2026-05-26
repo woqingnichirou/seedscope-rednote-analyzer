@@ -87,16 +87,28 @@ npm --prefix apps/web install
 
 ## 6. 双击启动脚本
 
-完成依赖安装后，可以双击：
+如果你希望一次性完成环境检查和依赖安装，可以先双击：
 
 ```text
-scripts/start_windows.bat
+scripts/windows/setup_windows.bat
+```
+
+安装完成后，可以双击：
+
+```text
+scripts/windows/start_windows.bat
 ```
 
 脚本会自动打开两个窗口：
 
 - `SeedScope API`：后端服务，地址为 `http://127.0.0.1:8000`
 - `SeedScope Web`：前端服务，地址为 `http://127.0.0.1:3000`
+
+如果需要停止服务，可以双击：
+
+```text
+scripts/windows/stop_windows.bat
+```
 
 如果你希望手动启动，也可以使用以下命令。
 

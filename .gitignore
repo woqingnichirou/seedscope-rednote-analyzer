@@ -17,6 +17,7 @@ temp/
 screenshots/
 raw_data/
 coverage/
+logs/
 *.log
 *.pptx
 *.zip
