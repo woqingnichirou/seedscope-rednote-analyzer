@@ -1,0 +1,437 @@
+{
+  "template_name": "brand_a_vs_brand_b_xiaohongshu_seeding_competitive_analysis",
+  "version": "1.0.0",
+  "language": "zh-CN",
+  "privacy_rules": {
+    "brand_replacement": {
+      "optimized_brand": "Brand A",
+      "benchmark_brand": "Brand B"
+    },
+    "forbidden_content": [
+      "真实品牌名",
+      "真实预算金额",
+      "真实达人姓名或账号",
+      "真实截图",
+      "可识别的原始案例标题"
+    ],
+    "allowed_content": [
+      "脱敏后的占比",
+      "区间化金额",
+      "抽象后的标题公式",
+      "不可识别的内容母题",
+      "聚合指标"
+    ]
+  },
+  "rendering_principles": [
+    "结论先行",
+    "每节包含结论、证据、动作",
+    "使用 Brand A 和 Brand B 作为默认品牌名",
+    "建议必须对应可执行产物或可监测指标",
+    "不输出空泛建议"
+  ],
+  "required_context": {
+    "period": {
+      "label": "分析周期展示名，例如：近半年"
+    },
+    "brand_a": {
+      "name": "Brand A",
+      "role": "优化对象"
+    },
+    "brand_b": {
+      "name": "Brand B",
+      "role": "对标对象"
+    }
+  },
+  "sections": [
+    {
+      "id": "executive_summary",
+      "title": "核心结论",
+      "required": true,
+      "purpose": "用 3-5 条结论概括双方策略差异和 Brand A 的优先动作。",
+      "data_contract": {
+        "overall_judgement": "string",
+        "insights": [
+          {
+            "title": "string",
+            "summary": "string",
+            "evidence": "string",
+            "implication": "string"
+          }
+        ]
+      },
+      "quality_checks": [
+        "结论必须包含策略差异",
+        "至少一条结论指向 Brand A 的优化动作",
+        "不得出现真实品牌名或真实预算"
+      ]
+    },
+    {
+      "id": "overview",
+      "title": "近半年概览",
+      "required": true,
+      "purpose": "聚合展示发布规模、互动表现、爆文率、内容类型和主要波峰。",
+      "data_contract": {
+        "conclusion": "string",
+        "metrics": [
+          {
+            "name": "string",
+            "brand_a": "number|string",
+            "brand_b": "number|string",
+            "comment": "string"
+          }
+        ],
+        "key_observations": ["string"]
+      },
+      "recommended_metrics": [
+        "发布笔记数",
+        "总互动量",
+        "平均互动量",
+        "高赞内容数",
+        "爆文率",
+        "品牌直露标题占比",
+        "问题型/方法型标题占比"
+      ]
+    },
+    {
+      "id": "cadence",
+      "title": "发布时间节奏",
+      "required": true,
+      "purpose": "识别双方发布波峰、低谷和内容主题之间的关系。",
+      "data_contract": {
+        "conclusion": "string",
+        "timeline": [
+          {
+            "window": "string",
+            "brand_a_action": "string",
+            "brand_b_action": "string",
+            "interpretation": "string"
+          }
+        ],
+        "recommendation": "string"
+      },
+      "quality_checks": [
+        "不能只比较发布数量",
+        "必须解释波峰背后的内容主题或投放目标"
+      ]
+    },
+    {
+      "id": "spend_and_creators",
+      "title": "花费与达人结构",
+      "required": true,
+      "purpose": "判断预算是否集中投向高决策作者，以及达人池是否支持种草转化。",
+      "data_contract": {
+        "conclusion": "string",
+        "creator_tiers": [
+          {
+            "name": "string",
+            "definition": "string",
+            "share": "string",
+            "performance": "string",
+            "action": "string"
+          }
+        ],
+        "price_bands": [
+          {
+            "label": "string",
+            "count": "number|string",
+            "spend_share": "string",
+            "role": "string"
+          }
+        ]
+      },
+      "default_creator_tiers": [
+        "高决策作者",
+        "结果陪跑作者",
+        "低成本测试作者",
+        "品牌背书作者"
+      ]
+    },
+    {
+      "id": "title_analysis",
+      "title": "标题结构对比",
+      "required": true,
+      "purpose": "对比标题是否先进入用户问题，再自然带出品牌。",
+      "data_contract": {
+        "conclusion": "string",
+        "types": [
+          {
+            "type": "string",
+            "brand_a_share": "string",
+            "brand_b_share": "string",
+            "finding": "string",
+            "formula": "string"
+          }
+        ],
+        "recommendation": "string"
+      },
+      "default_title_types": [
+        "问题型",
+        "方法型",
+        "对比型",
+        "结果型",
+        "品牌直露型"
+      ]
+    },
+    {
+      "id": "content_strategy",
+      "title": "内容策略对比",
+      "required": true,
+      "purpose": "比较双方在内容主张、起手方式、正文结构、转化方式上的差异。",
+      "data_contract": {
+        "conclusion": "string",
+        "dimensions": [
+          {
+            "dimension": "string",
+            "brand_a": "string",
+            "brand_b": "string",
+            "optimization": "string"
+          }
+        ]
+      },
+      "default_dimensions": [
+        "核心主张",
+        "内容起手",
+        "正文结构",
+        "品牌露出位置",
+        "结果证明",
+        "转化方式",
+        "适合投放端"
+      ]
+    },
+    {
+      "id": "body_structure",
+      "title": "正文结构拆解",
+      "required": true,
+      "purpose": "沉淀可复用正文 SOP，让内容先建立信任和判断框架，再承接品牌与 CTA。",
+      "data_contract": {
+        "conclusion": "string",
+        "steps": [
+          {
+            "name": "string",
+            "goal": "string",
+            "guidance": "string",
+            "required_data": "string"
+          }
+        ]
+      },
+      "default_steps": [
+        "立人设",
+        "讲痛点",
+        "抛认知",
+        "引品牌",
+        "给结果",
+        "接 CTA"
+      ]
+    },
+    {
+      "id": "high_like_categories",
+      "title": "高赞内容类别",
+      "required": true,
+      "purpose": "把高赞内容抽象成可复用母题，用于选题库和投放赛马。",
+      "data_contract": {
+        "conclusion": "string",
+        "items": [
+          {
+            "name": "string",
+            "user_question": "string",
+            "content_hook": "string",
+            "title_direction": "string",
+            "cover_direction": "string",
+            "creator_fit": "string"
+          }
+        ]
+      },
+      "default_categories": [
+        "阶段窗口",
+        "选课避坑",
+        "结果反差",
+        "方法攻略",
+        "真实陪跑",
+        "横向对比"
+      ]
+    },
+    {
+      "id": "cover_strategy",
+      "title": "封面策略拆解",
+      "required": true,
+      "purpose": "沉淀封面模板，提升首屏停留、信息密度和证据感。",
+      "data_contract": {
+        "conclusion": "string",
+        "templates": [
+          {
+            "name": "string",
+            "message": "string",
+            "evidence_slot": "string",
+            "content_fit": "string",
+            "acceptance_criteria": "string"
+          }
+        ]
+      },
+      "default_templates": [
+        "阶段窗口型",
+        "结果反差型",
+        "选课避坑型",
+        "证据陪跑型"
+      ]
+    },
+    {
+      "id": "cta_analysis",
+      "title": "CTA承接分析",
+      "required": true,
+      "purpose": "分析正文、评论、私信、表单或试听链路的自然承接程度和转化效率。",
+      "data_contract": {
+        "conclusion": "string",
+        "touchpoints": [
+          {
+            "position": "string",
+            "current_state": "string",
+            "user_question": "string",
+            "action": "string",
+            "metric": "string"
+          }
+        ]
+      },
+      "default_touchpoints": [
+        "正文后半段",
+        "评论区置顶",
+        "私信关键词",
+        "资料包/表单",
+        "试听承接页"
+      ]
+    },
+    {
+      "id": "issues",
+      "title": "当前问题总结",
+      "required": true,
+      "purpose": "按层级归纳当前短板，并明确影响、优先级和对应动作。",
+      "data_contract": [
+        {
+          "layer": "string",
+          "problem": "string",
+          "impact": "string",
+          "priority": "number",
+          "action": "string"
+        }
+      ],
+      "default_layers": [
+        "达人层",
+        "标题层",
+        "封面层",
+        "正文层",
+        "投放层",
+        "复盘层"
+      ]
+    },
+    {
+      "id": "optimization_initiatives",
+      "title": "优化措施汇总",
+      "required": true,
+      "purpose": "将优化方向拆解为明确项目，每个项目必须有交付物和验收指标。",
+      "data_contract": [
+        {
+          "name": "string",
+          "objective": "string",
+          "actions": [
+            {
+              "name": "string",
+              "deliverable": "string",
+              "acceptance_metric": "string"
+            }
+          ]
+        }
+      ],
+      "default_initiatives": [
+        "达人池重构",
+        "内容池重构",
+        "封面模板重构",
+        "CTA 承接重构",
+        "复投机制重构"
+      ]
+    },
+    {
+      "id": "next_stage_plan",
+      "title": "下阶段打法",
+      "required": true,
+      "purpose": "给出从模板重建到复投放大的阶段化打法。",
+      "data_contract": {
+        "phases": [
+          {
+            "name": "string",
+            "window": "string",
+            "task": "string",
+            "deliverable": "string",
+            "success_metric": "string"
+          }
+        ]
+      },
+      "default_phases": [
+        "模板重建",
+        "小规模赛马",
+        "白名单复投",
+        "品效联动"
+      ]
+    },
+    {
+      "id": "budget_plan",
+      "title": "预算分配建议",
+      "required": true,
+      "purpose": "按作者能力和内容目标分配预算，避免平均铺量。",
+      "data_contract": {
+        "conclusion": "string",
+        "allocation": [
+          {
+            "module": "string",
+            "share": "string",
+            "goal": "string",
+            "principle": "string"
+          }
+        ]
+      },
+      "default_modules": [
+        "高决策作者",
+        "结果陪跑作者",
+        "低成本测试作者",
+        "品牌背书作者",
+        "素材复投"
+      ]
+    },
+    {
+      "id": "next_actions",
+      "title": "下一步行动",
+      "required": true,
+      "purpose": "输出可执行行动清单，明确负责人、截止时间、交付物和验收指标。",
+      "data_contract": [
+        {
+          "name": "string",
+          "owner": "string",
+          "due_date": "string",
+          "deliverable": "string",
+          "metric": "string"
+        }
+      ],
+      "minimum_actions": 5
+    }
+  ],
+  "validation_rules": [
+    {
+      "id": "no_real_brand_names",
+      "description": "输出中不得包含原始真实品牌名。",
+      "severity": "error"
+    },
+    {
+      "id": "no_raw_budget",
+      "description": "输出中不得包含原始真实预算金额，只允许区间、占比或变量。",
+      "severity": "error"
+    },
+    {
+      "id": "conclusion_first",
+      "description": "每个章节第一段应为结论或判断，不应先列原始数据。",
+      "severity": "warning"
+    },
+    {
+      "id": "actionable_recommendations",
+      "description": "所有优化建议必须包含动作、交付物或指标。",
+      "severity": "warning"
+    }
+  ]
+}

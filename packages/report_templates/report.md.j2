@@ -1,0 +1,174 @@
+# {{ report_title | default("Brand A vs Brand B 小红书种草竞品分析报告") }}
+
+> 分析周期：{{ period.label }}  
+> 优化对象：{{ brand_a.name | default("Brand A") }}  
+> 对标对象：{{ brand_b.name | default("Brand B") }}
+
+## 核心结论
+
+{% for insight in executive_summary.insights %}
+{{ loop.index }}. **{{ insight.title }}**：{{ insight.summary }}
+   - 证据：{{ insight.evidence }}
+   - 对 {{ brand_a.name | default("Brand A") }} 的启示：{{ insight.implication }}
+{% endfor %}
+
+**总判断**：{{ executive_summary.overall_judgement }}
+
+## 近半年概览
+
+{{ overview.conclusion }}
+
+| 指标 | {{ brand_a.name | default("Brand A") }} | {{ brand_b.name | default("Brand B") }} | 关键判断 |
+|---|---:|---:|---|
+{% for row in overview.metrics %}
+| {{ row.name }} | {{ row.brand_a }} | {{ row.brand_b }} | {{ row.comment }} |
+{% endfor %}
+
+{% if overview.key_observations %}
+**关键观察**
+{% for item in overview.key_observations %}
+- {{ item }}
+{% endfor %}
+{% endif %}
+
+## 发布时间节奏
+
+{{ cadence.conclusion }}
+
+| 时间窗口 | {{ brand_a.name | default("Brand A") }} 动作 | {{ brand_b.name | default("Brand B") }} 动作 | 策略含义 |
+|---|---|---|---|
+{% for row in cadence.timeline %}
+| {{ row.window }} | {{ row.brand_a_action }} | {{ row.brand_b_action }} | {{ row.interpretation }} |
+{% endfor %}
+
+**节奏建议**：{{ cadence.recommendation }}
+
+## 花费与达人结构
+
+{{ spend_and_creators.conclusion }}
+
+| 达人层级 | 定义 | 当前占比/数量 | 表现判断 | 下一步动作 |
+|---|---|---:|---|---|
+{% for tier in spend_and_creators.creator_tiers %}
+| {{ tier.name }} | {{ tier.definition }} | {{ tier.share }} | {{ tier.performance }} | {{ tier.action }} |
+{% endfor %}
+
+{% if spend_and_creators.price_bands %}
+**价格带结构**
+
+| 价格带 | 合作数量 | 花费占比 | 角色判断 |
+|---|---:|---:|---|
+{% for band in spend_and_creators.price_bands %}
+| {{ band.label }} | {{ band.count }} | {{ band.spend_share }} | {{ band.role }} |
+{% endfor %}
+{% endif %}
+
+## 标题结构对比
+
+{{ title_analysis.conclusion }}
+
+| 标题类型 | {{ brand_a.name | default("Brand A") }} 占比 | {{ brand_b.name | default("Brand B") }} 占比 | 表现判断 | 可复用公式 |
+|---|---:|---:|---|---|
+{% for item in title_analysis.types %}
+| {{ item.type }} | {{ item.brand_a_share }} | {{ item.brand_b_share }} | {{ item.finding }} | {{ item.formula }} |
+{% endfor %}
+
+**优化方向**：{{ title_analysis.recommendation }}
+
+## 内容策略对比
+
+{{ content_strategy.conclusion }}
+
+| 维度 | {{ brand_a.name | default("Brand A") }} | {{ brand_b.name | default("Brand B") }} | 优化点 |
+|---|---|---|---|
+{% for row in content_strategy.dimensions %}
+| {{ row.dimension }} | {{ row.brand_a }} | {{ row.brand_b }} | {{ row.optimization }} |
+{% endfor %}
+
+## 正文结构拆解
+
+{{ body_structure.conclusion }}
+
+| 步骤 | 目标 | 推荐写法 | 需要填充的数据 |
+|---|---|---|---|
+{% for step in body_structure.steps %}
+| {{ loop.index }}. {{ step.name }} | {{ step.goal }} | {{ step.guidance }} | {{ step.required_data }} |
+{% endfor %}
+
+## 高赞内容类别
+
+{{ high_like_categories.conclusion }}
+
+| 类别 | 用户问题 | 内容抓手 | 标题方向 | 封面方向 | 适用作者 |
+|---|---|---|---|---|---|
+{% for category in high_like_categories.items %}
+| {{ category.name }} | {{ category.user_question }} | {{ category.content_hook }} | {{ category.title_direction }} | {{ category.cover_direction }} | {{ category.creator_fit }} |
+{% endfor %}
+
+## 封面策略拆解
+
+{{ cover_strategy.conclusion }}
+
+| 封面模板 | 核心信息 | 视觉证据 | 适用内容 | 验收标准 |
+|---|---|---|---|---|
+{% for template in cover_strategy.templates %}
+| {{ template.name }} | {{ template.message }} | {{ template.evidence_slot }} | {{ template.content_fit }} | {{ template.acceptance_criteria }} |
+{% endfor %}
+
+## CTA 承接分析
+
+{{ cta_analysis.conclusion }}
+
+| CTA 位置 | 当前表现 | 用户问题 | 优化动作 | 监测指标 |
+|---|---|---|---|---|
+{% for row in cta_analysis.touchpoints %}
+| {{ row.position }} | {{ row.current_state }} | {{ row.user_question }} | {{ row.action }} | {{ row.metric }} |
+{% endfor %}
+
+## 当前问题总结
+
+| 层级 | 问题 | 影响 | 优先级 | 对应动作 |
+|---|---|---|---:|---|
+{% for issue in issues %}
+| {{ issue.layer }} | {{ issue.problem }} | {{ issue.impact }} | P{{ issue.priority }} | {{ issue.action }} |
+{% endfor %}
+
+## 优化措施汇总
+
+{% for initiative in optimization_initiatives %}
+### {{ initiative.name }}
+
+{{ initiative.objective }}
+
+| 动作 | 交付物 | 验收指标 |
+|---|---|---|
+{% for action in initiative.actions %}
+| {{ action.name }} | {{ action.deliverable }} | {{ action.acceptance_metric }} |
+{% endfor %}
+{% endfor %}
+
+## 下阶段打法
+
+| 阶段 | 时间窗口 | 核心任务 | 关键产物 | 判断标准 |
+|---|---|---|---|---|
+{% for phase in next_stage_plan.phases %}
+| {{ phase.name }} | {{ phase.window }} | {{ phase.task }} | {{ phase.deliverable }} | {{ phase.success_metric }} |
+{% endfor %}
+
+## 预算分配建议
+
+{{ budget_plan.conclusion }}
+
+| 投放模块 | 建议占比 | 目标 | 执行原则 |
+|---|---:|---|---|
+{% for item in budget_plan.allocation %}
+| {{ item.module }} | {{ item.share }} | {{ item.goal }} | {{ item.principle }} |
+{% endfor %}
+
+## 下一步行动
+
+| 序号 | 动作 | 负责人 | 截止时间 | 交付物 | 验收指标 |
+|---:|---|---|---|---|---|
+{% for action in next_actions %}
+| {{ loop.index }} | {{ action.name }} | {{ action.owner }} | {{ action.due_date }} | {{ action.deliverable }} | {{ action.metric }} |
+{% endfor %}

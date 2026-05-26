@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 10%;
+  --muted: 0 0% 96%;
+  --card: 0 0% 100%;
+  --border: 0 0% 86%;
+  --primary: 4 76% 42%;
+}
+
+body {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+input,
+textarea,
+select {
+  font: inherit;
+}

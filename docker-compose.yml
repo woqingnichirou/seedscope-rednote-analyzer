@@ -1,0 +1,29 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: sqlite:///./data/seedscope.db
+      UPLOAD_DIR: ./data/uploads
+      EXPORT_DIR: ./data/exports
+      REPORT_TEMPLATE_DIR: ./packages/report_templates
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./packages:/app/packages:ro
+      - ./examples:/app/examples:ro
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    environment:
+      NEXT_PUBLIC_API_BASE_URL: http://localhost:8000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api

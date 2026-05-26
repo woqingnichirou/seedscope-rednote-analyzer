@@ -1,0 +1,75 @@
+{
+  "project": {
+    "brand_a": "Brand A",
+    "brand_b": "Brand B",
+    "industry": "在线教育",
+    "period": "近半年",
+    "objective": "分析两组高赞笔记的内容策略差异，并输出 Brand A 的优化动作。"
+  },
+  "notes": [
+    {
+      "brand_key": "brand_a",
+      "account_name": "脱敏账号 A01",
+      "title": "二年级孩子口语不开口怎么办？我按这 4 点重新选课",
+      "cover_text": "二年级 / 开口难 / 选课避坑清单",
+      "body_keywords": "二年级、口语、避坑、方法、试听",
+      "likes": 1280,
+      "collects": 640,
+      "comments": 96,
+      "published_at": "2026-02",
+      "content_type": "选课避坑",
+      "title_type": "问题型",
+      "cover_type": "选课避坑型",
+      "body_structure": "立人设 → 讲痛点 → 抛认知 → 引品牌 → 给结果 → 接 CTA",
+      "cta_type": "评论承接"
+    },
+    {
+      "brand_key": "brand_a",
+      "account_name": "脱敏账号 A02",
+      "title": "试了几类线上课后，我更看重这 3 个判断标准",
+      "cover_text": "线上课怎么选 / 3 个标准 / 少走弯路",
+      "body_keywords": "对比、标准、方法、家长",
+      "likes": 860,
+      "collects": 510,
+      "comments": 72,
+      "published_at": "2026-03",
+      "content_type": "横向对比",
+      "title_type": "方法型",
+      "cover_type": "选课避坑型",
+      "body_structure": "立人设 → 讲痛点 → 抛认知 → 引品牌 → 接 CTA",
+      "cta_type": "私信承接"
+    },
+    {
+      "brand_key": "brand_b",
+      "account_name": "脱敏账号 B01",
+      "title": "孩子坚持 3 个月后，终于敢整句表达了",
+      "cover_text": "3 个月变化 / 从不敢说到敢表达 / 学习记录",
+      "body_keywords": "变化、结果、孩子、真实",
+      "likes": 1420,
+      "collects": 580,
+      "comments": 110,
+      "published_at": "2026-03",
+      "content_type": "结果反差",
+      "title_type": "结果型",
+      "cover_type": "结果反差型",
+      "body_structure": "立人设 → 讲痛点 → 引品牌 → 给结果 → 接 CTA",
+      "cta_type": "试听/资料承接"
+    },
+    {
+      "brand_key": "brand_b",
+      "account_name": "脱敏账号 B02",
+      "title": "低龄启蒙别只看热闹，先看这份陪跑清单",
+      "cover_text": "低龄启蒙 / 陪跑清单 / 家长复盘",
+      "body_keywords": "低龄、阶段、清单、陪跑、方法",
+      "likes": 760,
+      "collects": 470,
+      "comments": 58,
+      "published_at": "2026-04",
+      "content_type": "方法攻略",
+      "title_type": "方法型",
+      "cover_type": "阶段窗口型",
+      "body_structure": "立人设 → 讲痛点 → 抛认知 → 给结果",
+      "cta_type": "弱 CTA"
+    }
+  ]
+}
