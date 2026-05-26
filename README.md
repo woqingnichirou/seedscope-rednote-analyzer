@@ -1,20 +1,34 @@
 # SeedScope
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Frontend](https://img.shields.io/badge/Frontend-Next.js-black.svg)](apps/web)
+[![Backend](https://img.shields.io/badge/Backend-FastAPI-009688.svg)](apps/api)
+[![Local First](https://img.shields.io/badge/Local--first-yes-blue.svg)](#privacy--compliance)
+[![No Scraping](https://img.shields.io/badge/No%20scraping-enforced-red.svg)](#privacy--compliance)
+
 **SeedScope is a local-first, screenshot-based competitive content analyzer for Rednote/Xiaohongshu seeding strategy.**
 
-It helps marketing, growth, and content teams compare Brand A vs Brand B using user-provided high-performing note screenshots. SeedScope extracts OCR fields, lets users correct the data, classifies content patterns, and generates brand-safe competitive reports.
+[中文 README](README.zh-CN.md) | [Use Cases 中文](docs/use_cases_zh.md) | [China User Quickstart](docs/china_user_quickstart.md) | [Roadmap](docs/roadmap.md)
 
-> 中文补充：SeedScope 用于分析用户自行上传的小红书/Rednote 笔记截图，不包含爬虫能力，不绕过平台限制，不处理未授权隐私数据。
+SeedScope helps brand teams, agencies, growth teams, and content marketing teams compare Brand A vs Brand B using user-provided high-performing note screenshots. It extracts OCR fields, lets users correct the data, classifies content patterns, and generates brand-safe competitive reports.
 
-## Product Screenshot
+## Product Preview
 
-Screenshots are intentionally not committed in the first open-source version.
+> The first open-source release does not include real product screenshots or real platform screenshots. Use the placeholders below when preparing GitHub images or product docs.
 
-Suggested placeholders:
+| Screen | Placeholder | Description |
+|---|---|---|
+| Home | `docs/assets/homepage.png` | Product positioning and workflow overview |
+| OCR Review | `docs/assets/review-table.png` | Editable OCR correction table |
+| Tag Analysis | `docs/assets/tag-analysis.png` | Content type and pattern charts |
+| Report | `docs/assets/report-preview.png` | Markdown / HTML competitive report preview |
 
-- `docs/assets/homepage.png` — project landing page and workflow overview.
-- `docs/assets/review-table.png` — OCR correction table.
-- `docs/assets/report-preview.png` — generated Markdown/HTML report preview.
+## Four Principles
+
+- **No scraping**: no crawler, no spider, no automated platform extraction, no login automation.
+- **Local-first**: SQLite, local uploads, local exports, and deterministic rule mode by default.
+- **Screenshot-based**: users upload screenshots they are allowed to process.
+- **Brand-safe**: templates use Brand A / Brand B, anonymized examples, and privacy-first reporting.
 
 ## Why This Project
 
@@ -23,35 +37,17 @@ Competitive content analysis is often trapped between two bad options:
 - Manual review is slow, subjective, and hard to reproduce.
 - Platform scraping is fragile, legally risky, and often violates platform rules.
 
-SeedScope takes a different path:
+SeedScope takes a safer workflow: start from user-provided screenshots, extract structured signals, classify marketing patterns, and generate a report that content teams can review and adapt.
 
-- **No scraping**: users upload screenshots they are allowed to process.
-- **Screenshot-based**: OCR converts visual note screenshots into structured fields.
-- **Local-first**: SQLite, local uploads, local exports, and deterministic rule-based analysis by default.
-- **Brand-safe**: templates use Brand A / Brand B, anonymized examples, and privacy-first reporting.
-
-The goal is not to replace human strategy work. The goal is to make repeatable analysis faster, cleaner, and safer.
+The goal is not to replace human strategy work. The goal is to make repeatable Rednote seeding analysis faster, cleaner, and safer.
 
 ## Core Features
 
 - Create a Brand A vs Brand B competitive analysis project.
 - Upload multiple Rednote/Xiaohongshu note screenshots for each brand.
-- OCR extraction for:
-  - title
-  - cover copy
-  - likes
-  - collects
-  - comments
-  - publish time
-  - account name
+- OCR extraction for title, cover copy, likes, collects, comments, publish time, and account name.
 - Editable correction table for OCR results.
-- Rule-based classification for:
-  - content type
-  - title pattern
-  - cover pattern
-  - body structure
-  - CTA pattern
-  - risk pattern
+- Rule-based classification for content type, title pattern, cover pattern, body structure, CTA pattern, and risk pattern.
 - Competitive report generation in Markdown and HTML.
 - Excel export for note-level analysis.
 - Optional LLM integration via `OPENAI_API_KEY`.
@@ -60,28 +56,13 @@ The goal is not to replace human strategy work. The goal is to make repeatable a
 
 ## Workflow
 
-1. **Create project**
-   - Enter Brand A, Brand B, industry, analysis period, and objective.
-
-2. **Upload screenshots**
-   - Upload Brand A and Brand B note screenshots separately.
-
-3. **Run OCR**
-   - SeedScope attempts PaddleOCR first.
-   - If PaddleOCR is unavailable, it falls back to Tesseract.
-   - If OCR fails, fields remain editable.
-
-4. **Review and correct**
-   - Edit extracted title, cover text, account, engagement metrics, and publish time.
-
-5. **Classify content**
-   - Apply rules for content type, title structure, cover style, body structure, CTA, and risk.
-
-6. **Generate report**
-   - Produce a structured competitive seeding analysis report.
-
-7. **Export**
-   - Export Markdown, HTML, and Excel files.
+1. Create a project with Brand A, Brand B, industry, period, and objective.
+2. Upload screenshots for Brand A and Brand B separately.
+3. Run OCR extraction.
+4. Review and correct extracted fields.
+5. Generate content tags and risk labels.
+6. Generate a competitive seeding report.
+7. Export Markdown, HTML, and Excel.
 
 ## Tech Stack
 
@@ -111,11 +92,6 @@ The goal is not to replace human strategy work. The goal is to make repeatable a
 - OpenAI-compatible integration via `OPENAI_API_KEY`
 - DeepSeek / Claude extension interfaces reserved
 - Rule-based mode available without any API key
-
-### Deployment
-
-- Docker Compose
-- Local-first filesystem storage
 
 ## Quick Start
 
@@ -179,7 +155,7 @@ NEXT_PUBLIC_API_BASE_URL=http://localhost:8000
 Notes:
 
 - `LLM_PROVIDER=rule` keeps the app deterministic and local-first.
-- Set `LLM_PROVIDER=openai` and `OPENAI_API_KEY` only if you want to add LLM-assisted summaries.
+- Set `LLM_PROVIDER=openai` and `OPENAI_API_KEY` only if you want LLM-assisted summaries.
 - Uploaded files and exports are stored under `data/` by default.
 
 ## Demo Data
@@ -190,19 +166,9 @@ SeedScope includes fully anonymized demo data:
 - [`examples/demo_ocr_texts/`](examples/demo_ocr_texts/)
 - [`examples/sample_notes.xlsx`](examples/sample_notes.xlsx)
 
-The demo data uses only:
+The demo data uses only Brand A / Brand B, anonymized account names, synthetic engagement metrics, and generic online education examples.
 
-- Brand A
-- Brand B
-- anonymized account names
-- synthetic engagement metrics
-- generic online education examples
-
-No real brand names, creators, screenshots, internal budgets, or private business data are included.
-
-## Sample Report
-
-You can review the generated demo report here:
+## Demo Report
 
 - Markdown: [`examples/sample_report.md`](examples/sample_report.md)
 - HTML: [`examples/sample_report.html`](examples/sample_report.html)
@@ -222,26 +188,11 @@ SeedScope ships with first-version marketing analysis rules under [`packages/rul
 - `risk_patterns.json`
 - `report_sections.json`
 
-Each category includes:
-
-- English key
-- Chinese label
-- detection signals
-- description
-- example
+Each category includes an English key, Chinese label, detection signals, description, and example.
 
 ## Roadmap
 
-- Import demo data directly from `examples/demo_notes.json`.
-- Add OCR health checks in the UI.
-- Add optional PaddleOCR dependency profile.
-- Add LLM-assisted report insights with strict JSON schema validation.
-- Add creator-level scoring and whitelist recommendations.
-- Add thumbnail preview during OCR correction.
-- Add richer charts for cadence, title structure, cover strategy, and CTA performance.
-- Add report history and project comparison.
-- Add automated tests for API, templates, and rules.
-- Add Playwright smoke tests for the full workflow.
+See [`docs/roadmap.md`](docs/roadmap.md).
 
 ## FAQ
 
@@ -256,10 +207,6 @@ Only screenshots and fields uploaded by the user. The user is responsible for en
 ### Can I use it without an LLM API key?
 
 Yes. The default mode is rule-based and works without `OPENAI_API_KEY`.
-
-### Why screenshot-based instead of crawler-based?
-
-Screenshots are easier to review, safer to handle, and better aligned with brand-safe internal analysis workflows.
 
 ### Is this only for online education?
 
@@ -281,27 +228,11 @@ Principles:
 - **Brand-safe**: examples and templates avoid real brand names, real creators, real budgets, and identifiable screenshots.
 - **Human review required**: generated reports are drafts and should be reviewed before business use.
 
-Do not use SeedScope to:
-
-- collect private data without permission
-- identify or track private individuals
-- bypass platform restrictions
-- scrape Rednote/Xiaohongshu or any other platform
-- publish misleading or defamatory competitor claims
-- process confidential internal materials without authorization
+Do not use SeedScope to collect private data without permission, identify or track private individuals, bypass platform restrictions, scrape any platform, publish misleading competitor claims, or process confidential internal materials without authorization.
 
 ## Contributing
 
 Contributions are welcome.
-
-Good first contribution areas:
-
-- Improve rule libraries in `packages/rules`.
-- Add tests for the FastAPI endpoints.
-- Add sample screenshot placeholders using synthetic assets.
-- Improve OCR parsing heuristics.
-- Add more export formats.
-- Improve report templates.
 
 Before submitting a pull request:
 
@@ -319,6 +250,4 @@ npm --prefix apps/web run build
 
 ## License
 
-MIT License.
-
-See [`LICENSE`](LICENSE) for details.
+MIT License. See [`LICENSE`](LICENSE) for details.
