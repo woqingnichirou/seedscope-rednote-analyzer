@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BarChart3, FileText, UploadCloud } from "lucide-react";
+import { BarChart3, FileText, Settings, UploadCloud } from "lucide-react";
 
 export function Shell({ children }: { children: React.ReactNode }) {
   return (
@@ -13,6 +13,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
           <nav className="flex items-center gap-5 text-sm text-neutral-600">
             <span className="flex items-center gap-1"><UploadCloud className="h-4 w-4" /> OCR</span>
             <span className="flex items-center gap-1"><FileText className="h-4 w-4" /> Report</span>
+            <Link href="/settings" className="flex items-center gap-1 hover:text-neutral-900"><Settings className="h-4 w-4" /> Settings</Link>
           </nav>
         </div>
       </header>

@@ -12,7 +12,7 @@ from .models import Note, NoteRead, NoteUpdate, Project, ProjectCreate
 from .schemas import ExportResponse, ProjectDetail, ReportResponse, UploadResponse
 from .services.ocr import ocr_image, parse_note_fields
 from .services.reporting import export_project, render_report
-from .services.tagger import classify_note
+from .services.tagger import classify_note_with_provider
 
 
 app = FastAPI(title="SeedScope API", version="0.1.0")
@@ -84,7 +84,7 @@ def upload_images(
             copyfileobj(file.file, output)
         raw_text = ocr_image(path)
         fields = parse_note_fields(raw_text, path.stem)
-        tags = classify_note(fields["title"], fields["cover_text"], raw_text)
+        tags = classify_note_with_provider(fields["title"], fields["cover_text"], raw_text)
         note = Note(project_id=project_id, brand_key=brand_key, image_path=str(path), **fields, **tags)
         session.add(note)
         created.append(note)
@@ -113,7 +113,7 @@ def update_note(note_id: int, payload: NoteUpdate, session: Session = Depends(ge
 def tag_project(project_id: int, session: Session = Depends(get_session)) -> list[Note]:
     notes = session.exec(select(Note).where(Note.project_id == project_id)).all()
     for note in notes:
-        tags = classify_note(note.title, note.cover_text, note.raw_ocr_text)
+        tags = classify_note_with_provider(note.title, note.cover_text, note.raw_ocr_text)
         for key, value in tags.items():
             setattr(note, key, value)
         session.add(note)

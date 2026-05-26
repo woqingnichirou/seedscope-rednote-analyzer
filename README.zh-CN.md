@@ -86,21 +86,70 @@ http://localhost:3000
 
 ## 模型配置方式
 
-默认使用本地规则模式，不需要模型 API Key。
+SeedScope 支持 OpenAI、DeepSeek、Qwen、Kimi、Zhipu GLM 和 mock provider。大陆用户建议优先尝试 DeepSeek / Qwen / Kimi。
+
+### 无 API Key demo 模式
+
+首次体验可以使用 mock provider，不调用真实模型：
 
 ```env
-LLM_PROVIDER=rule
+LLM_PROVIDER=mock
+LLM_MODEL=
 OPENAI_API_KEY=
+DEEPSEEK_API_KEY=
+QWEN_API_KEY=
+KIMI_API_KEY=
+ZHIPU_API_KEY=
 ```
 
-如需启用 OpenAI 兼容模型能力：
+### DeepSeek
+
+```env
+LLM_PROVIDER=deepseek
+LLM_MODEL=deepseek-chat
+DEEPSEEK_API_KEY=your_deepseek_api_key
+```
+
+### Qwen 通义千问
+
+Qwen 使用 DashScope OpenAI-compatible 模式：
+
+```env
+LLM_PROVIDER=qwen
+LLM_MODEL=qwen-plus
+QWEN_API_KEY=your_qwen_api_key
+```
+
+### Kimi
+
+```env
+LLM_PROVIDER=kimi
+LLM_MODEL=moonshot-v1-8k
+KIMI_API_KEY=your_kimi_api_key
+```
+
+### Zhipu GLM 智谱
+
+```env
+LLM_PROVIDER=zhipu
+LLM_MODEL=glm-4-flash
+ZHIPU_API_KEY=your_zhipu_api_key
+```
+
+### OpenAI
 
 ```env
 LLM_PROVIDER=openai
-OPENAI_API_KEY=your_api_key_here
+LLM_MODEL=gpt-4o-mini
+OPENAI_API_KEY=your_openai_api_key
 ```
 
-DeepSeek 和 Claude 目前保留扩展接口，后续版本会补充 provider 配置和报告洞察生成能力。
+安全说明：
+
+- API Key 只保存在本地 `.env`。
+- `.env` 已写入 `.gitignore`，不要提交到 GitHub。
+- SeedScope 默认本地运行，不会把 API Key 上传到云端。
+- 如果 provider 接口细节变化，SeedScope 会回退到规则模式，不影响项目启动。
 
 ## 示例数据说明
 

@@ -11,7 +11,12 @@ class Settings(BaseSettings):
     export_dir: Path = Path("./data/exports")
     report_template_dir: Path = Path("./packages/report_templates")
     openai_api_key: str | None = None
-    llm_provider: str = "rule"
+    deepseek_api_key: str | None = None
+    qwen_api_key: str | None = None
+    kimi_api_key: str | None = None
+    zhipu_api_key: str | None = None
+    llm_provider: str = "mock"
+    llm_model: str | None = None
 
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
 

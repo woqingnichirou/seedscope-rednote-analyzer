@@ -50,8 +50,8 @@ The goal is not to replace human strategy work. The goal is to make repeatable R
 - Rule-based classification for content type, title pattern, cover pattern, body structure, CTA pattern, and risk pattern.
 - Competitive report generation in Markdown and HTML.
 - Excel export for note-level analysis.
-- Optional LLM integration via `OPENAI_API_KEY`.
-- Extension points for DeepSeek and Claude-compatible providers.
+- Optional LLM integration via OpenAI-compatible providers.
+- Built-in provider support for OpenAI, DeepSeek, Qwen, Kimi, Zhipu GLM, and mock demo mode.
 - Docker Compose setup for one-command local startup.
 
 ## Workflow
@@ -90,7 +90,7 @@ The goal is not to replace human strategy work. The goal is to make repeatable R
 ### LLM
 
 - OpenAI-compatible integration via `OPENAI_API_KEY`
-- DeepSeek / Claude extension interfaces reserved
+- DeepSeek / Qwen / Kimi / Zhipu GLM support for China users
 - Rule-based mode available without any API key
 
 ## Quick Start
@@ -143,8 +143,13 @@ http://localhost:3000
 Create a `.env` file from `.env.example`:
 
 ```env
+LLM_PROVIDER=deepseek
+LLM_MODEL=
 OPENAI_API_KEY=
-LLM_PROVIDER=rule
+DEEPSEEK_API_KEY=
+QWEN_API_KEY=
+KIMI_API_KEY=
+ZHIPU_API_KEY=
 DATABASE_URL=sqlite:///./data/seedscope.db
 UPLOAD_DIR=./data/uploads
 EXPORT_DIR=./data/exports
@@ -154,8 +159,9 @@ NEXT_PUBLIC_API_BASE_URL=http://localhost:8000
 
 Notes:
 
-- `LLM_PROVIDER=rule` keeps the app deterministic and local-first.
-- Set `LLM_PROVIDER=openai` and `OPENAI_API_KEY` only if you want LLM-assisted summaries.
+- `LLM_PROVIDER=mock` enables a no-key demo mode.
+- Mainland China users can use `deepseek`, `qwen`, `kimi`, or `zhipu`.
+- Set `LLM_PROVIDER=openai` and `OPENAI_API_KEY` only if you want OpenAI-assisted summaries.
 - Uploaded files and exports are stored under `data/` by default.
 
 ## Demo Data
@@ -206,7 +212,7 @@ Only screenshots and fields uploaded by the user. The user is responsible for en
 
 ### Can I use it without an LLM API key?
 
-Yes. The default mode is rule-based and works without `OPENAI_API_KEY`.
+Yes. Use `LLM_PROVIDER=mock` for no-key demo mode. If a real provider is not configured, SeedScope falls back to rule-based classification.
 
 ### Is this only for online education?
 

@@ -1,3 +1,27 @@
+from ..llm.factory import get_llm_provider
+
+
+TAG_FIELDS = ["content_type", "title_type", "cover_type", "body_structure", "cta_type"]
+
+
+def classify_note_with_provider(title: str, cover_text: str, raw_text: str) -> dict[str, str]:
+    rule_tags = classify_note(title, cover_text, raw_text)
+    provider = get_llm_provider()
+    if not provider.is_configured:
+        return rule_tags
+
+    try:
+        llm_tags = provider.classify_note(title, cover_text, raw_text)
+    except Exception:
+        return rule_tags
+
+    merged = rule_tags.copy()
+    for key in TAG_FIELDS:
+        if llm_tags.get(key):
+            merged[key] = llm_tags[key]
+    return merged
+
+
 def classify_note(title: str, cover_text: str, raw_text: str) -> dict[str, str]:
     text = f"{title} {cover_text} {raw_text}"
     return {

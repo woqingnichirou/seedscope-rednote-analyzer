@@ -50,18 +50,24 @@ SeedScope 默认可以不配置 API Key，使用本地规则模式。
 copy .env.example .env
 ```
 
-默认配置：
+默认无 API Key demo 配置：
 
 ```env
-LLM_PROVIDER=rule
+LLM_PROVIDER=mock
+LLM_MODEL=
 OPENAI_API_KEY=
+DEEPSEEK_API_KEY=
+QWEN_API_KEY=
+KIMI_API_KEY=
+ZHIPU_API_KEY=
 ```
 
-如果你需要使用 OpenAI 兼容模型辅助生成洞察，再填写：
+大陆用户推荐使用 DeepSeek / Qwen / Kimi。选择其中一个 provider 后，填写对应 API Key：
 
 ```env
-LLM_PROVIDER=openai
-OPENAI_API_KEY=你的_API_Key
+LLM_PROVIDER=deepseek
+LLM_MODEL=deepseek-chat
+DEEPSEEK_API_KEY=你的_API_Key
 ```
 
 请不要把 `.env` 上传到 GitHub 或发给他人。
