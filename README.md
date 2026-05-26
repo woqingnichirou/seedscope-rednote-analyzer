@@ -5,10 +5,11 @@
 [![Backend](https://img.shields.io/badge/Backend-FastAPI-009688.svg)](apps/api)
 [![Local First](https://img.shields.io/badge/Local--first-yes-blue.svg)](#privacy--compliance)
 [![No Scraping](https://img.shields.io/badge/No%20scraping-enforced-red.svg)](#privacy--compliance)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Landing%20Site-2f6fdb.svg)](https://woqingnichirou.github.io/seedscope-rednote-analyzer/)
 
 **SeedScope is a local-first, screenshot-based competitive content analyzer for Rednote/Xiaohongshu seeding strategy.**
 
-[中文 README](README.zh-CN.md) | [Use Cases 中文](docs/use_cases_zh.md) | [China User Quickstart](docs/china_user_quickstart.md) | [Roadmap](docs/roadmap.md)
+[Landing Page](https://woqingnichirou.github.io/seedscope-rednote-analyzer/) | [中文 README](README.zh-CN.md) | [Use Cases 中文](docs/use_cases_zh.md) | [China User Quickstart](docs/china_user_quickstart.md) | [Roadmap](docs/roadmap.md)
 
 SeedScope helps brand teams, agencies, growth teams, and content marketing teams compare Brand A vs Brand B using user-provided high-performing note screenshots. It extracts OCR fields, lets users correct the data, classifies content patterns, and generates brand-safe competitive reports.
 

@@ -1,5 +1,7 @@
 # SeedScope 中文说明
 
+[产品介绍页 / GitHub Pages](https://woqingnichirou.github.io/seedscope-rednote-analyzer/) | [English README](README.md) | [大陆用户快速开始](docs/china_user_quickstart.md)
+
 SeedScope 是一个面向品牌方、代理商和内容营销团队的本地优先小红书/Rednote 种草竞品内容分析工具。用户上传 Brand A 与 Brand B 的高赞笔记截图后，系统通过 OCR、规则标签和报告模板，生成可校正、可导出、可复盘的竞品种草分析报告。
 
 > SeedScope 不做爬虫，不绕过平台限制，不采集未授权数据。所有示例均为脱敏 demo data。

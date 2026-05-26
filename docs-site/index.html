@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="SeedScope 是面向品牌方、代理商和内容营销团队的小红书竞品种草分析器，支持截图上传、OCR 识别、自动打标签和 Word/PPT/Excel 报告导出。"
+    />
+    <title>SeedScope | 小红书竞品种草分析器</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="SeedScope home">
+          <span class="brand-mark">S</span>
+          <span>SeedScope</span>
+        </a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="#workflow">流程</a>
+          <a href="#features">功能</a>
+          <a href="#privacy">合规</a>
+          <a href="#quickstart">快速开始</a>
+          <a class="nav-cta" href="https://github.com/woqingnichirou/seedscope-rednote-analyzer">GitHub</a>
+        </nav>
+      </header>
+
+      <main id="top">
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">AI-powered Rednote Competitive Content Analyzer</p>
+            <h1>SeedScope 小红书竞品种草分析器</h1>
+            <p class="hero-value">上传本品与竞品高赞笔记截图，自动生成竞品种草分析报告。</p>
+            <p class="hero-desc">
+              面向中国大陆品牌方、代理商、内容营销和投放团队，把截图、标题、封面、互动数据与 CTA 承接方式结构化，快速沉淀可复用的内容策略。
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="https://github.com/woqingnichirou/seedscope-rednote-analyzer">View on GitHub</a>
+              <a class="button secondary" href="#quickstart">本地快速开始</a>
+            </div>
+            <div class="principles" aria-label="Product principles">
+              <span>No scraping</span>
+              <span>Local-first</span>
+              <span>Screenshot-based</span>
+              <span>Brand-safe</span>
+            </div>
+          </div>
+
+          <div class="product-visual" aria-label="SeedScope report preview">
+            <div class="browser-bar">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="report-preview">
+              <div class="preview-header">
+                <div>
+                  <p>竞品种草分析报告</p>
+                  <strong>Brand A vs Brand B</strong>
+                </div>
+                <span>Word / PPT / Excel</span>
+              </div>
+              <div class="metric-grid">
+                <div><strong>128</strong><span>样本笔记</span></div>
+                <div><strong>7</strong><span>内容类型</span></div>
+                <div><strong>5</strong><span>导出格式</span></div>
+              </div>
+              <div class="chart-row">
+                <div class="bar a"></div>
+                <div class="bar b"></div>
+                <div class="bar c"></div>
+                <div class="bar d"></div>
+                <div class="bar e"></div>
+              </div>
+              <div class="insight-list">
+                <p><b>核心结论</b>：竞品更擅长用“阶段窗口 + 结果反馈”降低决策成本。</p>
+                <p><b>策略建议</b>：本品应补强选课决策型内容与证据型封面表达。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="audience section-band">
+          <div class="section-title">
+            <p class="eyebrow">For Teams</p>
+            <h2>适合谁使用</h2>
+          </div>
+          <div class="audience-grid">
+            <article>
+              <h3>品牌方</h3>
+              <p>做竞品种草月报、季度复盘和大促前内容策略。</p>
+            </article>
+            <article>
+              <h3>代理商</h3>
+              <p>投前拆解竞品内容结构，形成更快的提案洞察。</p>
+            </article>
+            <article>
+              <h3>内容营销</h3>
+              <p>沉淀高赞笔记的标题、封面、正文和 CTA 模板。</p>
+            </article>
+            <article>
+              <h3>投放团队</h3>
+              <p>筛选可复投素材，识别低广告感、高转化潜力内容。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="painpoints">
+          <div class="section-title">
+            <p class="eyebrow">Pain Points</p>
+            <h2>核心痛点</h2>
+          </div>
+          <div class="pain-grid">
+            <div><span>01</span><p>人工看截图慢，互动数据和内容结构难统一整理。</p></div>
+            <div><span>02</span><p>分析不成体系，容易停留在“谁赞多、谁发得多”。</p></div>
+            <div><span>03</span><p>报告难复用，每次月报、提案、复盘都要重做。</p></div>
+            <div><span>04</span><p>策略难落地，标题、封面、正文和 CTA 没有可执行标签。</p></div>
+          </div>
+        </section>
+
+        <section id="workflow" class="workflow section-band">
+          <div class="section-title">
+            <p class="eyebrow">Workflow</p>
+            <h2>产品流程</h2>
+          </div>
+          <div class="steps" aria-label="Product workflow">
+            <div><b>上传截图</b><span>Brand A / Brand B</span></div>
+            <div><b>OCR识别</b><span>标题、封面、互动数据</span></div>
+            <div><b>自动打标签</b><span>内容类型、风险、CTA</span></div>
+            <div><b>生成报告</b><span>竞品结论与策略建议</span></div>
+            <div><b>导出文件</b><span>Word / PPT / Excel</span></div>
+          </div>
+        </section>
+
+        <section class="sample">
+          <div class="section-title">
+            <p class="eyebrow">Demo Report</p>
+            <h2>示例报告截图占位</h2>
+            <p>开源仓库不包含真实品牌截图。这里展示的是脱敏报告结构占位，实际使用时由用户上传自有截图生成。</p>
+          </div>
+          <div class="sample-frame">
+            <div class="sample-sidebar">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="sample-content">
+              <div class="sample-title"></div>
+              <div class="sample-line long"></div>
+              <div class="sample-line"></div>
+              <div class="sample-table">
+                <span></span><span></span><span></span>
+                <span></span><span></span><span></span>
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="features" class="features section-band">
+          <div class="section-title">
+            <p class="eyebrow">Core Features</p>
+            <h2>核心功能</h2>
+          </div>
+          <div class="feature-grid">
+            <article><h3>项目管理</h3><p>创建 Brand A vs Brand B 分析项目，记录行业、周期和分析目标。</p></article>
+            <article><h3>截图 OCR</h3><p>从用户自有截图中提取标题、封面文案、互动数据、发布时间和账号信息。</p></article>
+            <article><h3>人工校正</h3><p>通过可编辑表格修正 OCR 结果，确保报告输入可信。</p></article>
+            <article><h3>内容标签</h3><p>自动判断内容类型、标题套路、封面表达、正文结构、CTA 和风险。</p></article>
+            <article><h3>竞品报告</h3><p>按品牌营销语境生成结论先行的竞品种草分析报告。</p></article>
+            <article><h3>多格式导出</h3><p>支持 Markdown、HTML、Excel、Word 和 PPT，便于内部汇报与二次编辑。</p></article>
+          </div>
+        </section>
+
+        <section id="privacy" class="privacy">
+          <div class="section-title">
+            <p class="eyebrow">Privacy & Compliance</p>
+            <h2>隐私与合规</h2>
+          </div>
+          <div class="compliance-list">
+            <p><b>No scraping</b>：不做爬虫，不绕过平台限制，不做登录自动化。</p>
+            <p><b>Local-first</b>：本地优先运行，上传文件和导出结果默认保存在用户本机。</p>
+            <p><b>用户自有截图</b>：只处理用户有权使用的截图素材，不内置真实平台截图。</p>
+            <p><b>Brand-safe</b>：示例数据使用 Brand A / Brand B，不包含真实预算、达人或敏感信息。</p>
+          </div>
+        </section>
+
+        <section id="quickstart" class="quickstart section-band">
+          <div class="section-title">
+            <p class="eyebrow">Quick Start</p>
+            <h2>快速开始</h2>
+          </div>
+          <div class="quickstart-grid">
+            <div>
+              <h3>Windows 非技术用户</h3>
+              <p>下载项目后，双击运行安装脚本和启动脚本。</p>
+              <code>scripts/windows/setup_windows.bat</code>
+              <code>scripts/windows/start_windows.bat</code>
+            </div>
+            <div>
+              <h3>开发者</h3>
+              <p>使用 Docker Compose 或本地前后端命令启动。</p>
+              <code>docker compose up --build</code>
+              <code>http://127.0.0.1:3000</code>
+            </div>
+          </div>
+        </section>
+
+        <section class="community">
+          <div>
+            <p class="eyebrow">Open Source</p>
+            <h2>欢迎 Star、Issue 与 Feedback</h2>
+            <p>如果 SeedScope 对你的内容分析工作有帮助，欢迎在 GitHub Star 项目，或通过 Issue 反馈大陆品牌方、代理商和投放团队的真实工作流需求。</p>
+          </div>
+          <div class="community-actions">
+            <a class="button primary" href="https://github.com/woqingnichirou/seedscope-rednote-analyzer">Star on GitHub</a>
+            <a class="button secondary" href="https://github.com/woqingnichirou/seedscope-rednote-analyzer/issues">Submit Issue</a>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <span>SeedScope</span>
+        <span>Screenshot-based. Local-first. Brand-safe.</span>
+      </footer>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
