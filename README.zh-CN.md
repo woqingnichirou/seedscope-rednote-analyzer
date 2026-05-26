@@ -208,8 +208,24 @@ OPENAI_API_KEY=your_openai_api_key
 
 - `examples/sample_report.md`
 - `examples/sample_report.html`
+- `examples/sample_report.docx`
+- `examples/sample_report.pptx`
 
 报告结构覆盖核心结论、近半年概览、发布时间节奏、达人与预算结构、标题策略、内容策略、正文结构、封面策略、CTA 承接、问题总结、优化措施、下阶段打法、预算建议和下一步行动。
+
+## 导出格式说明
+
+SeedScope 支持面向不同工作流的多格式导出：
+
+| 格式 | 文件 | 适用场景 |
+|---|---|---|
+| Markdown | `report.md` | 放入知识库、GitHub、飞书文档二次整理 |
+| HTML | `report.html` | 浏览器预览、轻量分享、内部页面归档 |
+| Excel | `notes.xlsx` | 明细复盘、筛选高赞内容、透视标题/封面/CTA 标签 |
+| Word | `SeedScope_竞品分析报告_项目名_日期.docx` | 品牌方内部汇报、代理商交付文档、可二次修改报告 |
+| PPT | `SeedScope_竞品分析报告_项目名_日期.pptx` | 月报会、策略会、投前提案和管理层简报 |
+
+Word 报告使用清晰标题层级，并对关键结论加粗。PPT 采用 16:9 简洁蓝灰色样式，每页聚焦一个核心结论，不使用任何真实品牌色或真实品牌素材。
 
 ## 常见问题
 

@@ -101,7 +101,7 @@
 
 | 类别 | 用户问题 | 内容抓手 | 标题方向 | 封面方向 | 适用作者 |
 |---|---|---|---|---|---|
-{% for category in high_like_categories.items %}
+{% for category in high_like_categories["items"] %}
 | {{ category.name }} | {{ category.user_question }} | {{ category.content_hook }} | {{ category.title_direction }} | {{ category.cover_direction }} | {{ category.creator_fit }} |
 {% endfor %}
 

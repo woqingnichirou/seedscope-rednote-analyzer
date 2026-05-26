@@ -239,7 +239,7 @@
     <table>
       <thead><tr><th>类别</th><th>用户问题</th><th>内容抓手</th><th>标题方向</th><th>封面方向</th><th>适用作者</th></tr></thead>
       <tbody>
-      {% for category in high_like_categories.items %}
+      {% for category in high_like_categories["items"] %}
       <tr><td>{{ category.name }}</td><td>{{ category.user_question }}</td><td>{{ category.content_hook }}</td><td>{{ category.title_direction }}</td><td>{{ category.cover_direction }}</td><td>{{ category.creator_fit }}</td></tr>
       {% endfor %}
       </tbody>

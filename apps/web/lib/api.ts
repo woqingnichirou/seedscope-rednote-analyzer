@@ -71,5 +71,5 @@ export async function generateReport(projectId: number) {
 }
 
 export async function createExports(projectId: number) {
-  return api<{ markdown_url: string; html_url: string; excel_url: string }>(`/api/projects/${projectId}/exports`, { method: "POST" });
+  return api<{ markdown_url: string; html_url: string; excel_url: string; word_url: string; ppt_url: string }>(`/api/projects/${projectId}/exports`, { method: "POST" });
 }

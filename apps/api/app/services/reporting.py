@@ -1,11 +1,11 @@
-from collections import Counter, defaultdict
-from pathlib import Path
+from collections import Counter
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
-from openpyxl import Workbook
 from sqlmodel import Session, select
 
 from ..config import get_settings
+from ..exporters import export_html, export_markdown, export_notes_excel, export_report_ppt, export_report_word
+from ..exporters.common import ppt_filename, word_filename
 from ..models import Note, Project, Report
 
 
@@ -244,38 +244,21 @@ def export_project(session: Session, project: Project) -> dict[str, str]:
     md_path = project_dir / "report.md"
     html_path = project_dir / "report.html"
     xlsx_path = project_dir / "notes.xlsx"
-    md_path.write_text(report.markdown, encoding="utf-8")
-    html_path.write_text(report.html, encoding="utf-8")
+    docx_name = word_filename(project)
+    pptx_name = ppt_filename(project)
+    docx_path = project_dir / docx_name
+    pptx_path = project_dir / pptx_name
+
+    export_markdown(report.markdown, md_path)
+    export_html(report.html, html_path)
     export_notes_excel(notes, xlsx_path)
+    export_report_word(project, notes, docx_path)
+    export_report_ppt(project, notes, pptx_path)
 
     return {
         "markdown_url": f"/api/exports/project_{project.id}/report.md",
         "html_url": f"/api/exports/project_{project.id}/report.html",
         "excel_url": f"/api/exports/project_{project.id}/notes.xlsx",
+        "word_url": f"/api/exports/project_{project.id}/{docx_name}",
+        "ppt_url": f"/api/exports/project_{project.id}/{pptx_name}",
     }
-
-
-def export_notes_excel(notes: list[Note], path: Path) -> None:
-    workbook = Workbook()
-    sheet = workbook.active
-    sheet.title = "notes"
-    headers = [
-        "brand_key",
-        "account_name",
-        "title",
-        "cover_text",
-        "likes",
-        "collects",
-        "comments",
-        "published_at",
-        "content_type",
-        "title_type",
-        "cover_type",
-        "body_structure",
-        "cta_type",
-        "body_keywords",
-    ]
-    sheet.append(headers)
-    for note in notes:
-        sheet.append([getattr(note, header) for header in headers])
-    workbook.save(path)

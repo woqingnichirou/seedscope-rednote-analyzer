@@ -22,3 +22,5 @@ class ExportResponse(BaseModel):
     markdown_url: str
     html_url: str
     excel_url: str
+    word_url: str
+    ppt_url: str
